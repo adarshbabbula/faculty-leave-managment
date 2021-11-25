@@ -1,0 +1,65 @@
+<mat-spinner *ngIf="isLoading" style="margin: 0 auto"></mat-spinner>
+<mat-grid-list cols="2" *ngIf="!isLoading">
+
+  <!-- <mat-card> -->
+      <mat-grid-tile>
+        <form [formGroup] = "form" (ngSubmit)="check()">
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <br>
+            <button mat-flat-button color="primary">Check</button>
+      </form>
+      </mat-grid-tile>
+      <mat-grid-tile>
+
+
+          <table class="table table-bordered table-light">
+              <thead>
+                  <tr>
+                      <th colspan="4" style="font-size: 250%;font-family:Verdana, Geneva, Tahoma, sans-serif;">List of all Accepted Leaves</th>
+                  </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Reason</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let leave of leaves; let i = index">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{leave.requestee.faculty_id}}</td>
+                  <td>{{leave.requestee.name}}</td>
+                  <td>{{leave.reason}}</td>
+                </tr>
+                  <!-- <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>  -->
+                <!-- <tr>
+                    <td colspan="4"><button mat-raised-button color="primary">Print</button></td>
+                </tr> -->
+              </tbody>
+            </table>
+
+
+
+
+      </mat-grid-tile>
+  <!-- </mat-card> -->
+
+</mat-grid-list>

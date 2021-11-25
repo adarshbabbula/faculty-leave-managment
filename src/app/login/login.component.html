@@ -1,0 +1,42 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 style="color:black"> Faculty Login</h2>
+
+    <!-- Icon -->
+
+
+    <!-- Login Form -->
+    <form (ngSubmit)="facultyLogin(facultyId.value, facultyPassword.value)">
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="Faculty ID" #facultyId>
+      <input type="password" id="password1" class="fadeIn third" name="login" placeholder="Password" #facultyPassword>
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+    <hr>
+    <!--Admin Module-->
+    <h2 style="color:black"> Admin Login</h2>
+    <form (ngSubmit)="adminLogin(adminId.value, password.value)">
+      <input type="text" id="login1" class="fadeIn second" name="login" placeholder="Login" #adminId>
+      <input type="password" id="password1" class="fadeIn third" name="login" placeholder="Password" #password>
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+    <p>
+      <!-- <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Forgot Password?
+      </a> -->
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <form>
+          <input type="text" id="email" class="fadeIn second" name="email" placeholder="Email">
+          <input type="submit" class="fadeIn fourth" value="Verify your given email">
+        </form>
+      </div>
+    </div>
+
+
+    <!-- Remind Passowrd -->
+
+
+  </div>
+</div>

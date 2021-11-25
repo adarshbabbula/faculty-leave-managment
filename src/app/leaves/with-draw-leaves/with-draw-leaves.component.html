@@ -1,0 +1,15 @@
+<form [formGroup] = "form" (ngSubmit)="withDraw()" *ngIf="leaves.length>0">
+<mat-form-field appearance="outline" style="margin-left: 20px;">
+  <mat-label>Select Leave Date</mat-label>
+  <mat-select formControlName="leaveId">
+    <mat-option [value]="leave._id" *ngFor="let leave of leaves">{{leave.date}}</mat-option>
+  </mat-select>
+</mat-form-field>
+<br>
+<button mat-flat-button color="warn" style="margin-left: 20px;" type="submit">With Draw</button>
+<button type="button" mat-flat-button color="primary" style="margin-left: 20px;" (click)="close()">Cancel</button>
+</form>
+<div *ngIf="leaves.length==0">
+  <h1>No Leaves to With Draw</h1>
+  <button mat-flat-button color="primary" (click)="close()">Close</button>
+</div>

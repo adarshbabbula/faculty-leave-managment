@@ -1,0 +1,11 @@
+<form>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Reason</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  #reason></textarea>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-flat-button color="primary" (click)="close()">Cancel</button>
+    <button mat-flat-button color="warn" (click)="reject(reason.value)">Reject</button>
+  </div>
+</form>
+

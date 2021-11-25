@@ -1,0 +1,42 @@
+<mat-spinner *ngIf="isLoading" style="margin: 0 auto"></mat-spinner>
+<mat-card class="card1" *ngIf="!isLoading">
+    <h2>Leaves</h2>
+    <hr>
+    <form [formGroup] = "form" (ngSubmit)="bookSlot()">
+        <mat-form-field appearance="fill">
+            <mat-label style="color: aliceblue;">Choose date</mat-label>
+            <input matInput [matDatepicker]="picker" name="date" formControlName="date" [min]="minDate">
+            <mat-datepicker-toggle matSuffix [for]="picker" style="color: aliceblue;"></mat-datepicker-toggle>
+            <mat-datepicker #picker ></mat-datepicker>
+        </mat-form-field>
+        <!-- <mat-form-field appearance="fill" style="margin-left: 20px;">
+          <mat-label style="color: aliceblue;">Choose ending date</mat-label>
+          <input matInput [matDatepicker]="picker1" name="date" formControlName="endingDate" [min]="minDate">
+          <mat-datepicker-toggle matSuffix [for]="picker1" style="color: aliceblue;"></mat-datepicker-toggle>
+          <mat-datepicker #picker1 ></mat-datepicker>
+      </mat-form-field> -->
+        <hr>
+        <h2>Leave Type</h2>
+        <mat-form-field appearance="fill" style="color: aliceblue;">
+          <mat-label style="color: aliceblue;">Type</mat-label>
+          <mat-select formControlName="type">
+            <mat-option value="CL">
+              CL
+            </mat-option>
+            <mat-option value="EL">
+              EL
+            </mat-option>
+            <mat-option value="HPL">
+              HPL
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <hr>
+        <h2>Reason for a leave</h2>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label style="color: aliceblue;">Reason</mat-label>
+            <textarea matInput name="reason" formControlName="reason"></textarea>
+          </mat-form-field>
+          <button mat-flat-button color="primary">Submit</button>
+    </form>
+</mat-card>

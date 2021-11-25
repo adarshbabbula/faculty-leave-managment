@@ -1,0 +1,71 @@
+<mat-spinner *ngIf="isLoading" style="margin: 0 auto"></mat-spinner>
+<div class="container">
+<mat-grid-list cols="2" *ngIf="!isLoading">
+  <!-- <mat-card> -->
+      <mat-grid-tile>
+        <form [formGroup] = "form" (ngSubmit)="check()">
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <br>
+            <button mat-flat-button color="primary" (click)="check()">Check</button>
+      </form>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <table class="table table-bordered table-light">
+              <thead>
+                  <tr>
+                      <th colspan="7" style="font-size: 250%;font-family:Verdana, Geneva, Tahoma, sans-serif;text-align: center;">List of Leaves</th>
+                  </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">Reason</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Accept</th>
+                  <th scope="col">Reject</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let leave of leaves; let i = index">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{leave.faculty.name}}</td>
+                  <td>{{leave.from}} to {{leave.to}}</td>
+                  <td>{{leave.reason}}</td>
+                  <td>{{leave.status}}</td>
+                  <td><button mat-flat-button color="primary" (click)="accept(leave._id, leave.faculty)" *ngIf="leave.status!='Accepted' && checkDate(leave.date)">Accept</button></td>
+                  <td><button mat-flat-button color="warn" (click)="reject(leave._id)" *ngIf="leave.status!='Rejected' && checkDate(leave.date)">Reject</button></td>
+                </tr>
+                  <!-- <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>  -->
+                <!-- <tr>
+                    <td colspan="4"><button mat-raised-button color="primary">Print</button></td>
+                </tr> -->
+              </tbody>
+            </table>
+      </mat-grid-tile>
+    <!-- <mat-grid-tile>
+      <h3 *ngIf="isDateFetched">Accepted {{date ? date.acceptedLeaves : 0}} Leaves</h3>
+    </mat-grid-tile> -->
+  <!-- </mat-card> -->
+
+</mat-grid-list>
+
+
+</div>

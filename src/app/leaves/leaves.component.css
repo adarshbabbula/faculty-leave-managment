@@ -1,0 +1,19 @@
+#c
+{
+    margin: 200px 100px 0px 100px;
+}
+h3
+{
+    text-align: center;
+}
+th{
+    text-align: center;
+    font-size: 70px;
+}
+td{
+  text-align: center;
+    font-size: 90px;
+}
+/* *{
+  font-size: 2rem;
+} */
